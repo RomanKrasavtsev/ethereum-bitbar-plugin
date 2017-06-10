@@ -32,7 +32,7 @@ current_price = Nokogiri::HTML(open("https://min-api.cryptocompare.com/data/pric
   .to_s
   .gsub(/<p>{"USD":/, "")
   .gsub(/}<\/p>/, "")
-puts "ETH: #{current_price}"
+puts "ETH: $#{current_price}"
 
 puts "---"
 
@@ -44,5 +44,5 @@ TIMES.each do |text, time|
     .gsub(/<p>{"ETH":{"USD":/, "")
     .gsub(/\}\}<\/p>/, "")
   percent = current_price.to_i * 100.0 / price.to_i - 100
-  puts "-#{text}: #{price} [#{percent.round(2)}%]"
+  puts "-#{text}: $#{price} [#{percent.round(2)}%]"
 end
